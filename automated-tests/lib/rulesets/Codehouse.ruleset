@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Codehouse Recommended Rules" Description="These rules implement a hybrid of Microsoft recommended rules, StyleCop Analyzers and NUnit Analyzers. They are free to change when they conflict with Codehouse guidelines and can be supressed with good reason." ToolsVersion="16.0">
+  <Rules AnalyzerId="DevExpress.CodeAnalysis.CSharp.Diagnostics" RuleNamespace="DevExpress.CodeAnalysis.CSharp.Diagnostics">
+    <Rule Id="CRRSP02" Action="None" />
+    <Rule Id="CRRSP03" Action="None" />
+    <Rule Id="CRRSP04" Action="None" />
+    <Rule Id="CRRSP05" Action="None" />
+    <Rule Id="CRRSP06" Action="None" />
+    <Rule Id="CRRSP07" Action="None" />
+    <Rule Id="CRRSP08" Action="None" />
+    <Rule Id="CRRSP09" Action="None" />
+    <Rule Id="CRRSP10" Action="None" />
+    <Rule Id="CRRSP11" Action="None" />
+    <Rule Id="CRRSP12" Action="None" />
+    <Rule Id="CRRSP13" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+    <Rule Id="CS1591" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1101" Action="None" />
+    <Rule Id="SA1200" Action="None" />
+    <Rule Id="SA1201" Action="None" />
+    <Rule Id="SA1202" Action="None" />
+    <Rule Id="SA1203" Action="None" />
+    <Rule Id="SA1309" Action="None" />
+    <Rule Id="SA1310" Action="None" />
+    <Rule Id="SA1413" Action="None" />
+    <Rule Id="SA1600" Action="None" />
+    <Rule Id="SA1602" Action="None" />
+    <Rule Id="SA1633" Action="None" />
+    <Rule Id="SX1101" Action="Warning" />
+    <Rule Id="SX1309" Action="Warning" />
+  </Rules>
+</RuleSet>

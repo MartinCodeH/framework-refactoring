@@ -1,0 +1,1 @@
+Add any external assemblies that aren't available from nuget.

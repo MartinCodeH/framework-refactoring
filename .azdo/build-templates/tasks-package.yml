@@ -1,0 +1,17 @@
+# Steps to create packages on default/daily build
+
+steps:    
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '$(nuspecIPC)'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
+    basePath: '$(sourcePath)'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: packageVersion
+  displayName: 'Package: NuGet pack'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)' 
+  displayName: 'Package: Publish build artifacts'

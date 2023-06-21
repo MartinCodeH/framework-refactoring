@@ -1,0 +1,14 @@
+# Installs NuGet and NPM dependencies requires by the build.
+
+steps:
+- task: NuGetAuthenticate@0
+  inputs:
+    forceReinstallCredentialProvider: true
+  displayName: 'Dependency: NuGet Authenticate'
+  
+- task: NuGetCommand@2
+  inputs:
+    feedsToUse: 'config'
+    nugetConfigPath: '$(nugetConfigurationPath)'
+    restoreSolution: '$(solution)'
+  displayName: 'Dependencies: Install Nuget packages'

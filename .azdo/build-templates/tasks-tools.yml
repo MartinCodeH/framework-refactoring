@@ -1,0 +1,14 @@
+# Installs any tools required as a part of the build process
+# to the build agent (excluding those part of the agent image)
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '$(nodeVersion)'
+    checkLatest: false
+  displayName: 'Tools: Install Node.js'
+
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: 4.1.0
+  displayName: 'Tools: Install Nuget'

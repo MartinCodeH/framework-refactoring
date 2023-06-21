@@ -1,0 +1,21 @@
+name: '1.$(Date:yyyy).0.$(Rev:r)'
+
+pr: none
+trigger:
+  batch: true
+  branches:
+    include:
+    - develop
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+- template: 'build-templates/variables.yml'
+
+steps:
+- template: 'build-templates/tasks-tools.yml'
+- template: 'build-templates/tasks-dependencies.yml'
+- template: 'build-templates/tasks-build.yml'
+- template: 'build-templates/tasks-package.yml'
+- template: 'build-templates/tasks-octopus.yml'

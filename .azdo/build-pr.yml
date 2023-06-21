@@ -1,0 +1,16 @@
+name: '0.$(Date:yyyy).$(System.PullRequest.PullRequestNumber).$(Rev:r)'
+
+pr:
+- 'develop'
+trigger: none
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+- template: 'build-templates/variables.yml'
+
+steps:
+- template: 'build-templates/tasks-tools.yml'
+- template: 'build-templates/tasks-dependencies.yml'
+- template: 'build-templates/tasks-build.yml'

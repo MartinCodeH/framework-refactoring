@@ -1,0 +1,9 @@
+# Steps to deploy packages to octopus
+
+steps:
+- task: OctopusPush@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus'
+    Package: '$(packagesPath)'
+    Replace: false  
+  displayName: 'Deploy: Push Packages to Octopus'

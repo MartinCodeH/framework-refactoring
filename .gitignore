@@ -1,0 +1,28 @@
+# Ignored file types
+*.bak
+*.DotSettings.user
+*.[Rr]e[Ss]harper
+*.suo
+*.sln.docstates
+*.tmp
+*.user
+*.feature.cs
+
+# Ignored files
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# Ignored folders
+.vs/
+Backup*/
+[Bb]in/
+[Oo]bj/
+NDependOut/
+node_modules/
+publish/
+_UpgradeReport_Files/
+
+# Ignored paths
+/src/Legacy/UIAutomationFramework/testResults/*
+/src/Legacy/[Pp]ackages/*
+/src/WebAutomation.Selenium/**/results/*

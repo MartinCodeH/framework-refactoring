@@ -1,0 +1,13 @@
+# Holds common variables to all build pipelines
+
+variables:
+  solution: '$(Build.SourcesDirectory)\src\Legacy\SkeletonFramework.sln'
+  nodeVersion: '10.15.3' # NodeJS version to install
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  toolsVersion: '16.0'
+  runPlatform: 'x86'
+  sourcePath: '$(Build.SourcesDirectory)\src'
+  nuspecIPC: '$(Build.SourcesDirectory)\src\Legacy\UIAutomationFramework\CodehouseGroup.SkeletonAutomationFramework.nuspec'
+  packageVersion: '$(Build.BuildNumber)'
+  nugetConfigurationPath: '$(Build.SourcesDirectory)\.azdo\Nuget.azdo.config'  
