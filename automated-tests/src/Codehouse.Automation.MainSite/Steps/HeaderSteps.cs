@@ -17,11 +17,11 @@ internal class HeaderSteps
     [Then(@"the logo should be displayed in the header")]
     public void ThenTheLogoShouldBeDisplayedInTheHeader()
     {
-        _header.ValidateLogo();
+        _header.ValidateLogo().Should().BeTrue();
     }
 
     [Then(@"the (.*) link is displayed on the header")]
-    public void ThenTheServicesLinkIsDislayedOnTheHeader(string linkName)
+    public void ThenTheServicesLinkIsDisplayedOnTheHeader(string linkName)
     {
         _header.GetLinkNames().Should().ContainEquivalentOf(linkName, options => options.Using<string>(StringComparer.InvariantCultureIgnoreCase));
     }

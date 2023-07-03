@@ -10,12 +10,10 @@ namespace Codehouse.Automation.MainSite.Steps;
 internal class CookieBannerSteps
 {
     private readonly CookieBanner _cookieBanner;
-    private readonly SleepService _sleepService;
 
-    public CookieBannerSteps(CookieBanner cookieBanner, SleepService sleepService)
+    public CookieBannerSteps(CookieBanner cookieBanner)
     {
         _cookieBanner = cookieBanner;
-        _sleepService = sleepService;
     }
     
     [Then(@"the cookie banner appears")]
@@ -39,7 +37,6 @@ internal class CookieBannerSteps
     [Then(@"the cookie banner does not appear")]
     public void ThenTheCookieBannerDoesNotAppear()
     {
-        _sleepService.ThreadSleep(TimeSpan.FromSeconds(3));
         _cookieBanner.ValidateIsNotDisplayed();
     }
 

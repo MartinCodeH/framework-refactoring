@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		lib\rulesets\Codehouse.ruleset = lib\rulesets\Codehouse.ruleset
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codehouse.Automation.Common", "src\Codehouse.Automation.Common\Codehouse.Automation.Common.csproj", "{52762942-A027-4991-898A-CA27D0722757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{61566D60-FB9B-4C38-8ADE-CA17AB0EB6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61566D60-FB9B-4C38-8ADE-CA17AB0EB6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61566D60-FB9B-4C38-8ADE-CA17AB0EB6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52762942-A027-4991-898A-CA27D0722757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52762942-A027-4991-898A-CA27D0722757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52762942-A027-4991-898A-CA27D0722757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52762942-A027-4991-898A-CA27D0722757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

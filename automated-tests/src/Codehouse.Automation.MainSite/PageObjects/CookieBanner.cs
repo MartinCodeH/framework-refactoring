@@ -1,70 +1,52 @@
-﻿using Codehouse.Automation.MainSite.Services;
-using Codehouse.Automation.MainSite.Support;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Isos.Automation.Common.Extensions;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Codehouse.Automation.MainSite.PageObjects;
 
 internal class CookieBanner
 {
-    private readonly WebDriverProxy _webDriver;
+    private readonly IWebDriver _webDriver;
 
-    public CookieBanner(WebDriverProxy webDriver)
+    public CookieBanner(IWebDriver webDriver)
     {
         _webDriver = webDriver;
     }
 
-    private static readonly By CookieContainerLocator = By.CssSelector("div.cky-consent-container");
-    private static readonly By CookieAcceptButtonLocator = By.CssSelector("div.cky-consent-container button.cky-btn-accept");
-    private static readonly By CookieCloseButtonLocator = By.CssSelector("div.cky-consent-container button.cky-banner-btn-close");
-
+    private static readonly By _cookieContainerLocator = By.CssSelector("div.cky-consent-container");
+    private static readonly By _cookieAcceptButtonLocator = By.CssSelector("div.cky-consent-container button.cky-btn-accept");
+    private static readonly By _cookieCloseButtonLocator = By.CssSelector("div.cky-consent-container button.cky-banner-btn-close");
 
     public void ValidateIsDisplayed()
     {
-        _webDriver.WaitForAndFindElement(CookieContainerLocator, new WebElementQuery
-        {
-            IsDisplayed = true
-        });
+        new WebDriverWait(_webDriver, TimeSpan.FromSeconds(3))
+                .Until(driver => driver.FindElements(_cookieContainerLocator).Any(e => e.Displayed));
     }
 
     public void ValidateIsNotDisplayed()
     {
-        _webDriver.WaitForAll(CookieContainerLocator, new WebElementQuery
-        {
-            IsDisplayed = false
-        });
+        new Action(ValidateIsDisplayed).Should().Throw<WebDriverTimeoutException>();
     }
 
     public void Accept()
     {
-        _webDriver.WaitForAndFindElement(CookieAcceptButtonLocator, new WebElementQuery
-        {
-            IsDisplayed = true,
-            IsEnabled = true
-        }).Click();
+        _webDriver.Click(_cookieAcceptButtonLocator);
     }
 
     public void ValidateCorrectCookies()
     {
-        _webDriver.ValidateCookieNamed("_gid");
-    }
-
-    private void ValidateCorrectCookies(WaitSettings settings)
-    {
-        _webDriver.ValidateCookieNamed("_gid", settings);
+        var cookieName = "_gid";
+        _webDriver.Manage().Cookies.GetCookieNamed(cookieName).Name.Should().Be(cookieName);
     }
 
     public void ValidateNotCorrectCookies()
     {
-        new Action(() => ValidateCorrectCookies(new WaitSettings { TimeoutOverride = TimeSpan.FromSeconds(5) })).Should().Throw<WebDriverTimeoutException>();
+        new Action(ValidateCorrectCookies).Should().Throw<WebDriverTimeoutException>();
     }
 
     public void Close()
     {
-        _webDriver.WaitForAndFindElement(CookieCloseButtonLocator, new WebElementQuery
-        {
-            IsDisplayed = true,
-            IsEnabled = true
-        }).Click();
+        _webDriver.Click(_cookieCloseButtonLocator);
     }
 }
